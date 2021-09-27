@@ -1,0 +1,35 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#bg-img{
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 2s linear;
+}
+
+.navbar{
+    width: 100vw;
+    z-index: 999;
+    top: 0;
+    position: absolute;
+    opacity: 0.80;
+}
+
+.navbar-brand{
+    font: 600 1.75em "Poppins";
+}
+
+.nav-item{
+    font: 500 1.5em "Poppins";
+    color: white;
+    cursor: pointer;
+    margin-right: 35%;
+}
+
+.nav-item:hover{
+    opacity:0.5;
+}
