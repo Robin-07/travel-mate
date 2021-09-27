@@ -22,22 +22,23 @@ body{
     margin-bottom:10px;
 }
 
-.sign-up-card h3{
-    font:500 24px "nunito";
-    margin-bottom: 30px;
-}
-
-.input-div{
+.sign-up-card > p{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.input-div label{
+.sign-up-card > p:nth-child(3) {
+    flex-direction: row;
+}
+
+.sign-up-card label{
+    font: 500 1.2em "nunito";
     margin-bottom: 5px;
 }
 
-.input-div input{
+#id_password, #id_login{
+    font-size: 1em;
     display: block;
     width: 100%;
     padding: 10px 20px;
@@ -46,25 +47,37 @@ body{
     transition: 0.4s ease;
 }
 
-.input-div input:focus{
+#id_remember{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.sign-up-card input:focus{
     outline: none;
     border: 2px solid #2827CC;
 }
 
-.btn{
+.btn-login,.btn-signup{
     display: block;
     width: 100%;
-    height: 40px;
     line-height: 40px;
+    font-size: 1.25em;
     text-align: center;
     background: linear-gradient(45deg, #1B98F5, #23C4ED);
-    font-size: 18px;
     border-radius: 5px;
     margin-bottom: 10px;
     transition: 0.4s ease;
+    border: none;
 }
 
-.btn:hover{
+.btn-signup{
+    background: none;
+    background-color: #42b72a;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-login:hover{
     background: linear-gradient(45deg, #383CC1, #23C4ED);
     cursor: pointer;
 }
@@ -79,19 +92,19 @@ p a{
 .icons-container,.header{
 	display:flex;
 	justify-content:center;
+	align-content: center;
 }
 
 img{
-	margin-top: 10px;
+	margin-top: 5px;
+	margin-right: auto;
 	cursor:pointer;
 }
 
 .google-icon{
-	width:40px;
-	height:45px;
+    width: 10%;
 }
 
 .fb-icon{
-	width:75px;
-	height:45px;
+	width:20%;
 }

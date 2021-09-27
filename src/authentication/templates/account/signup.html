@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="sty.css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
 <head>
 <title>SIGN UP</title>
 <body>
@@ -24,8 +25,8 @@
     </div>
     <div class="input-div">
         <label for="Password">Confirm Password*</label>
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Retype Password">
     </div>
-  <div class="btn">Sign Up</div>
+  <button class="btn">Sign Up</button>
 </body>
 </html>

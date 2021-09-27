@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <head>
+        <title>TravelMate - Login</title>
+    </head>
+    <body>
+        <form method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            <div class="sign-up-card">
+                {{ form.as_p }}
+                <button class="btn-login" type="submit">Log In</button>
+                <div class="icons-container">
+                    <div style="margin-right:auto; padding:20px">
+                        <p>or Login with..</p>
+                    </div>
+                    <img class="google-icon" src="{% static 'images/goog.png' %}" alt="Google">
+                    <img class="fb-icon" src="{% static 'images/fb.png' %}" alt="Facebook" >
+                </div>
+            </div>
+            <div class="sign-up-card">
+                <p style="text-align:center;">Don't have an account?</p>
+                <button class="btn-signup" onclick="location.href='../signup/'">Sign Up</button>
+            </div>
+        </form>
+    </body>
+</html>
