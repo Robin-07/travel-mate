@@ -18,7 +18,6 @@
 
           function nextBackground() {
               div.style.backgroundImage = 'url(' + backgrounds[current = ++current % backgrounds.length] + ')';
-             console.log(div.style.backgroundImage);
              setTimeout(nextBackground, 5000);
              }
              setTimeout(nextBackground, 5000);
@@ -31,10 +30,10 @@
 
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="#">TravelMate</a>
-    <div class="d-flex align-items-center flex-row-reverse">
-        <div class="nav-item">Aboutus</div>
+    <div class="d-flex align-items-center flex-row-reverse justify-content-space-evenly">
+        <div class="nav-item">About us</div>
         <div class="nav-item">Explore</div>
-        <div class="nav-item">Login</div>
+        <div class="nav-item"><a href="/auth/login/">Login</a></div>
     </div>
 </nav>
 
