@@ -21,24 +21,18 @@ body{
     border-radius: 10px;
 }
 
-.sign-up-card h3{
-    text-align: center;
-    font: 500 1.5em "nunito";
-    margin-bottom: 10px;
-}
-
-.input-div{
+.sign-up-card input{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.input-div label{
+.sign-up-card label{
     margin-bottom: 5px;
     font: 500 1.2em "nunito";
 }
 
-.input-div input{
+.sign-up-card input{
     display: block;
     width: 100%;
     padding: 10px 20px;
@@ -48,9 +42,14 @@ body{
     transition: 0.4s ease;
 }
 
-.input-div input:focus{
+.sign-up-card input:focus{
     outline: none;
     border: 2px solid #2827CC;
+}
+
+.errorlist{
+    color: #e33235;
+    list-style-type: none;
 }
 
 .btn{

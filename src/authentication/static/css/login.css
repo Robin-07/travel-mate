@@ -57,6 +57,10 @@ body{
     border: 2px solid #2827CC;
 }
 
+.errorlist{
+    color:#e33235;
+}
+
 .btn-login,.btn-signup{
     display: block;
     width: 100%;

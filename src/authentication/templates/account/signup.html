@@ -5,28 +5,12 @@
 <head>
 <title>SIGN UP</title>
 <body>
-<div class="sign-up-card">
-        <h3>Sign Up</h3>
-        <div class="input-div">
-        <label for="Email">Email*</label>
-        <input type="email" placeholder="Email">
-        </div>
-	<div class="input-div">
-         <label for="First Name">First Name</label>
-         <input type="firstname" placeholder="First Name">
-        </div>
-        <div class="input-div">
-         <label for="Last Name">Last Name</label>
-         <input type="lastname" placeholder="Last Name">
-        </div>
-        <div class="input-div">
-            <label for="Password">Password*</label>
-            <input type="password" placeholder="Password">        
+<form method="POST" action="{% url 'account_signup' %}">
+    <div class="sign-up-card">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button class="btn">Sign Up</button>
     </div>
-    <div class="input-div">
-        <label for="Password">Confirm Password*</label>
-        <input type="password" placeholder="Retype Password">
-    </div>
-  <button class="btn">Sign Up</button>
+</form>
 </body>
 </html>
