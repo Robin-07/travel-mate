@@ -1,0 +1,114 @@
+﻿*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.sign-up-card{
+    background-color: #222;
+    color: #fff;
+    width: 350px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom:10px;
+}
+
+.sign-up-card > p{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.sign-up-card > p:nth-child(3) {
+    flex-direction: row;
+}
+
+.sign-up-card label{
+    font: 500 1.2em "nunito";
+    margin-bottom: 5px;
+}
+
+#id_password, #id_login{
+    font-size: 1em;
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid #1B98F5;
+    border-radius: 5px;
+    transition: 0.4s ease;
+}
+
+#id_remember{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.sign-up-card input:focus{
+    outline: none;
+    border: 2px solid #2827CC;
+}
+
+.errorlist{
+    color:#e33235;
+}
+
+.btn-login,.btn-signup{
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    font-size: 1.25em;
+    text-align: center;
+    background: linear-gradient(45deg, #1B98F5, #23C4ED);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: 0.4s ease;
+    border: none;
+}
+
+.btn-signup{
+    background: none;
+    background-color: #42b72a;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-login:hover{
+    background: linear-gradient(45deg, #383CC1, #23C4ED);
+    cursor: pointer;
+}
+
+p a{
+    margin-left: 5px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 18px;
+}
+
+.icons-container,.header{
+	display:flex;
+	justify-content:center;
+	align-content: center;
+}
+
+img{
+	margin-top: 5px;
+	margin-right: auto;
+	cursor:pointer;
+}
+
+.google-icon{
+    width: 10%;
+}
+
+.fb-icon{
+	width:20%;
+}

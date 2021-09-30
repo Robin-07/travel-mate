@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.sign-up-card{
+    background-color: #222;
+    color: #fff;
+    width: 350px;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+.sign-up-card input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.sign-up-card label{
+    margin-bottom: 5px;
+    font: 500 1.2em "nunito";
+}
+
+.sign-up-card input{
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font: 500 1em "nunito";
+    border: 2px solid #1B98F5;
+    border-radius: 5px;
+    transition: 0.4s ease;
+}
+
+.sign-up-card input:focus{
+    outline: none;
+    border: 2px solid #2827CC;
+}
+
+.errorlist{
+    color: #e33235;
+    list-style-type: none;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #42b72a;
+    color: white;
+    font-size: 1.25em;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+p a{
+    margin-left: 5px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 18px;
+}

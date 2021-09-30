@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+<head>
+<title>SIGN UP</title>
+<body>
+<form method="POST" action="{% url 'account_signup' %}">
+    <div class="sign-up-card">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button class="btn">Sign Up</button>
+    </div>
+</form>
+</body>
+</html>
