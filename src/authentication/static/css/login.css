@@ -2,15 +2,29 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-body{
+.container{
+    margin-top: 20vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: #fff;
-    min-height: 100vh;
+    min-height: 80vh;
     width: 100%;
+}
+
+.navbar{
+    background-color: #000 !important;
+    opacity: 1;
+}
+
+.welcome{
+    opacity: 0;
+    font: 600 3em "Poppins";
+    margin-top: 10vh;
+    margin-left: auto;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .sign-up-card{
