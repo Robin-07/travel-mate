@@ -4,6 +4,16 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 <title>SIGN UP</title>
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+        $('.welcome').css("opacity","1");
+        setTimeout(function(){
+            $('.sign-up-card').css("opacity","1");
+        },300);
+        },300);
+    })
+</script>
 {% endblock %}
 
 {% block body %}

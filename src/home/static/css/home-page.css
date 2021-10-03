@@ -16,7 +16,8 @@ body, html {
     z-index: 999;
     top: 0;
     position: absolute;
-    opacity: 0.80;
+    background-color: #000 !important;
+    opacity: 0.75;
 }
 
 .navbar-brand{
@@ -29,10 +30,11 @@ body, html {
     font: 500 1.5em "Poppins";
     color: white;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 .nav-item:hover{
-    opacity:0.5;
+    opacity:1;
 }
 
 .nav-item a{

@@ -54,8 +54,9 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'authentication.User'
 
 # allauth settings
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "optional"
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_FORMS = {'signup': 'authentication.forms.CustomSignupForm'}

@@ -17,9 +17,12 @@
 
     {% block body %}
     <div class="container">
+        <div class="welcome align-self-start">
+            Welcome to TravelMate...
+        </div>
         <form method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
-            <div class="sign-up-card align-self-center">
+            <div class="sign-up-card align-self-start">
                 {{ form.as_p }}
                 <button class="btn-login" type="submit">Log In</button>
                 <div class="icons-container">
@@ -35,8 +38,5 @@
                 <button class="btn-signup" onclick="location.href='../signup/'">Sign Up</button>
             </div>
         </form>
-        <div class="welcome align-self-start">
-            Welcome to TravelMate...
-        </div>
     </div>
     {% endblock %}
