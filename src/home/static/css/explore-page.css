@@ -1,0 +1,33 @@
+body{
+    overflow-x: hidden;
+    background-color: #121212;
+}
+
+.destination-container{
+    margin-top: 10%;
+    text-align: center;
+    color: white;
+    font: 600 3em "Poppins";
+}
+
+.destination-container:last-of-type{
+    margin-bottom: 100px;
+}
+
+.carousel-container{
+    margin-top: 40px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel, .carousel-inner{
+    height: 800px;
+    border-radius: 15px;
+    width: 80vw;
+}
+
+.carousel-item > img{
+    height: 800px;
+    width: 100vw;
+}

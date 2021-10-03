@@ -1,42 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'home/BaseHome.html' %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/home-page.css' %}">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <title>TravelMate - Home</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function(){
-          var div = document.getElementById('bg-img');
-          const backgrounds = ["{% static 'images/home-bg3.jpg' %}","{% static 'images/home-bg.jpg' %}",
-          "{% static 'images/home-bg2.jpg' %}","{% static 'images/home-bg4.jpg' %}"];
-          var current = 0;
 
-          function nextBackground() {
-              div.style.backgroundImage = 'url(' + backgrounds[current = ++current % backgrounds.length] + ')';
-             setTimeout(nextBackground, 5000);
-             }
-             setTimeout(nextBackground, 5000);
-               div.style.backgroundImage = 'url(' + backgrounds[0] + ')';
-        });
-    </script>
-</head>
-<body>
+{% block head %}
+<title>TravelMate - Home</title>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+      var div = document.getElementById('bg-img');
+      const backgrounds = ["{% static 'images/home-bg3.jpg' %}","{% static 'images/home-bg.jpg' %}",
+      "{% static 'images/home-bg2.jpg' %}","{% static 'images/home-bg4.jpg' %}"];
+      var current = 0;
+
+      function nextBackground() {
+          div.style.backgroundImage = 'url(' + backgrounds[current = ++current % backgrounds.length] + ')';
+         setTimeout(nextBackground, 5000);
+         }
+         setTimeout(nextBackground, 5000);
+           div.style.backgroundImage = 'url(' + backgrounds[0] + ')';
+    });
+</script>
+{% endblock %}
+{% block body %}
 <div id="bg-img"></div>
-
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">TravelMate</a>
-    <div class="d-flex align-items-center flex-row-reverse justify-content-space-evenly">
-        <div class="nav-item">About us</div>
-        <div class="nav-item">Explore</div>
-        <div class="nav-item"><a href="/auth/login/">Login</a></div>
-    </div>
-</nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}
