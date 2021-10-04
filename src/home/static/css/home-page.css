@@ -1,0 +1,67 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#bg-img{
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 2s linear;
+}
+
+.navbar{
+    width: 100vw;
+    z-index: 999;
+    top: 0;
+    position: absolute;
+    background-color: #000 !important;
+    opacity: 0.75;
+}
+
+.navbar-brand{
+    font: 600 1.75em "Poppins";
+}
+
+.nav-item{
+    padding-left: 20px;
+    padding-right: 20px;
+    font: 500 1.5em "Poppins";
+    color: white;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.nav-item:hover{
+    opacity:1;
+}
+
+.nav-item a{
+    color: white;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 1000px){
+    .navbar-brand{
+        font-size: 1.5em;
+    }
+
+    .nav-item{
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .navbar-brand{
+        font-size: 1.1em;
+    }
+
+    .nav-item{
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 0.8em;
+    }
+}

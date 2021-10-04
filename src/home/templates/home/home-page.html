@@ -1,0 +1,27 @@
+{% extends 'home/BaseHome.html' %}
+{% load static %}
+
+{% block head %}
+<title>TravelMate - Home</title>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+      var div = document.getElementById('bg-img');
+      const backgrounds = ["{% static 'images/home-bg3.jpg' %}","{% static 'images/home-bg.jpg' %}",
+      "{% static 'images/home-bg2.jpg' %}","{% static 'images/home-bg4.jpg' %}"];
+      var current = 0;
+
+      function nextBackground() {
+          div.style.backgroundImage = 'url(' + backgrounds[current = ++current % backgrounds.length] + ')';
+         setTimeout(nextBackground, 5000);
+         }
+         setTimeout(nextBackground, 5000);
+           div.style.backgroundImage = 'url(' + backgrounds[0] + ')';
+    });
+</script>
+{% endblock %}
+{% block body %}
+<div id="bg-img"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}

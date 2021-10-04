@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html>
+{% extends "account/BaseAuth.html" %}
 {% load static %}
+    {% block head %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <head>
-        <title>TravelMate - Login</title>
-    </head>
-    <body>
+    <title>TravelMate - Login</title>
+    <script>
+        $(document).ready(function(){
+            setTimeout(function(){
+            $('.welcome').css("opacity","1");
+            setTimeout(function(){
+                $('.sign-up-card').css("opacity","1");
+            },300);
+            },300);
+        })
+    </script>
+    {% endblock %}
+
+    {% block body %}
+    <div class="container">
+        <div class="welcome align-self-start">
+            Welcome to TravelMate...
+        </div>
         <form method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
-            <div class="sign-up-card">
+            <div class="sign-up-card align-self-start">
                 {{ form.as_p }}
                 <button class="btn-login" type="submit">Log In</button>
                 <div class="icons-container">
@@ -24,5 +38,5 @@
                 <button class="btn-signup" onclick="location.href='../signup/'">Sign Up</button>
             </div>
         </form>
-    </body>
-</html>
+    </div>
+    {% endblock %}
