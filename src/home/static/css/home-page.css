@@ -42,6 +42,17 @@ body, html {
     text-decoration: none;
 }
 
+.profile-img{
+    height: 45px;
+    width: 45px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.dropdown-item{
+    color: black !important;
+}
+
 @media only screen and (max-width: 1000px){
     .navbar-brand{
         font-size: 1.5em;

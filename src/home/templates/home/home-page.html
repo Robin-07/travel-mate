@@ -3,7 +3,6 @@
 
 {% block head %}
 <title>TravelMate - Home</title>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function(){
       var div = document.getElementById('bg-img');
@@ -17,8 +16,29 @@
          }
          setTimeout(nextBackground, 5000);
            div.style.backgroundImage = 'url(' + backgrounds[0] + ')';
+
+      $('.nav-item').eq(2).css("opacity","1");
     });
 </script>
+{% endblock %}
+{% block auth %}
+{% if user.is_authenticated %}
+<div class="nav-item">
+<div class="dropdown show">
+  <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img class="profile-img" src="{{ profile_img_url }}" />
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Edit Profile</a>
+    <a class="dropdown-item" href="/auth/logout">Logout</a>
+  </div>
+</div>
+</div>
+{% else %}
+<div class="nav-item" onclick="location.href='/auth/login'">
+    Login
+</div>
+{% endif %}
 {% endblock %}
 {% block body %}
 <div id="bg-img"></div>

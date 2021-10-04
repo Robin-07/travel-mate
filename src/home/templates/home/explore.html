@@ -3,10 +3,38 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/explore-page.css' %}">
     <title>TravelMate-Explore</title>
+    <script>
+        $(document).ready(function(){
+            $('.nav-item').eq(2).css("opacity","1");
+        });
+    </script>
+{% endblock %}
+
+{% block auth %}
+{% if user.is_authenticated %}
+<div class="nav-item">
+<div class="dropdown show">
+  <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img class="profile-img" src="{{ profile_img_url }}" />
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Edit Profile</a>
+    <a class="dropdown-item" href="/auth/logout">Logout</a>
+  </div>
+</div>
+</div>
+{% else %}
+<div class="nav-item" onclick="location.href='/auth/login'">
+    Login
+</div>
+{% endif %}
 {% endblock %}
 
 {% block body %}
 
+<div class="header">
+    Explore a wide range of locations around the &nbsp;<i class="fa fa-globe"></i>
+</div>
 {% regroup images by destination as destination_list %}
 
 {% for destination in destination_list %}

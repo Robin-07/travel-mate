@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django import utils
 
 
 class User(AbstractUser):
@@ -20,8 +21,15 @@ class User(AbstractUser):
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='profile-photos',null=True, blank=True)
+    photo = models.ImageField(upload_to='profile-images', default='default-profile-image.png')
+    phone = models.CharField(max_length=10, default="", null=True, blank=True)
+    dob = models.DateField(default=utils.timezone.now, null=True, blank=True)
 
     def __str__(self):
         return self.user.email
+
+    @property
+    def image_url(self):
+        if self.photo and hasattr(self.photo, 'url'):
+            return self.photo.url
 

@@ -31,7 +31,8 @@ body{
 
 .welcome{
     opacity: 0;
-    font: 600 3em "Poppins";
+    font: 600 40px "Poppins";
+    font-size: 40px !important;
     color: black;
     margin-top: 10vh;
     margin-right: auto;

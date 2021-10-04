@@ -60,6 +60,9 @@ ACCOUNT_EMAIL_VERIFICATION = "optional"
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_FORMS = {'signup': 'authentication.forms.CustomSignupForm'}
+ACCOUNT_SIGNUP_REDIRECT_URL = "/explore/"
+LOGIN_REDIRECT_URL = "/explore/"
+ACCOUNT_LOGOUT_ON_GET = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
