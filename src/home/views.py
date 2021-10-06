@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import Destination, DestinationImage
+from .models import Destination, DestinationImage, Deal
 from .helpers import get_profile_img_url
+
 
 def home(request):
 

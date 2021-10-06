@@ -14,7 +14,7 @@ FAMOUS_FOR_CHOICES = [('Scenery','Scenery'),('Wildlife','Wildlife'),('Food','Foo
 class Destination(models.Model):
 
     country = models.CharField(max_length=64)
-    name = models.CharField(max_length=64)
+    name = models.CharField(unique=True,max_length=64)
     terrain_type = models.CharField(max_length=32,choices=TERRAIN_CHOICES,null=True,blank=True)
     climate_type = models.CharField(max_length=32,choices=CLIMATE_CHOICES,null=True,blank=True)
     famous_for = models.CharField(max_length=64,choices=FAMOUS_FOR_CHOICES,null=True,blank=True)
@@ -35,5 +35,14 @@ class DestinationImage(models.Model):
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
+
+class Deal(models.Model):
+
+    destination = models.ForeignKey(to=Destination,on_delete=models.CASCADE)
+    duration = models.IntegerField()
+    price = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.destination.name}/{self.duration}days'
 
 

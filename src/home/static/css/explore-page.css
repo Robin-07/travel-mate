@@ -3,11 +3,37 @@ body{
     background-color: #121212;
 }
 
-.header{
-    margin-top: 5%;
+.navbar{
+    opacity:1;
+}
+
+.tabs{
+    display: flex;
+    justify-content: center;
+}
+
+.nav{
+    margin-top: 8%;
+}
+
+.nav-tabs{
+    border-bottom: none;
+}
+
+.nav-link{
+    background-color: transparent;
     color: white;
-    text-align: center;
-    font: 500 2em "nunito";
+    border-radius: 25px !important;
+}
+
+.nav-link:hover{
+    border: none;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    background-color: white;
+    border: none;
+    outline: none;
 }
 
 .destination-container{
@@ -25,10 +51,34 @@ body{
     justify-content: center;
 }
 
+.carousel > p{
+    position: absolute;
+    left: 0;
+    margin-left: auto;
+    font: 500 0.8em 'Poppins';
+    background: darkred;
+    padding: 10px;
+    border-radius: 12px 0 0 0;
+    z-index: 999;
+}
+
+.carousel > button{
+    position: absolute;
+    bottom:5%;
+    right:5%;
+    border-radius: 25px;
+    background: #000;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-color: #000;
+    font: 500 0.5em 'Poppins';
+    z-index:999;
+}
+
 .carousel, .carousel-inner{
-    height: 800px;
+    height: 500px;
     border-radius: 15px;
-    width: 80vw;
+    width: 60vw;
 }
 
 .carousel-item > img{
