@@ -1,6 +1,6 @@
 # travel-mate
 
-Travel agency web application built on the Django Framework.
+A Travel agency web application built on the Django Framework.
 
 Technologies Used:
 
