@@ -22,9 +22,6 @@ def explore(request):
 
 class WishViewSet(viewsets.ModelViewSet):
 
-     permission_classes = [permissions.IsAuthenticated]
+     authentication_classes = ()
      serializer_class = WishSerializer
-
-     def get_queryset(self):
-          user = self.request.user
-          return Wish.objects.filter(user=user)
+     queryset = Wish.objects.all()

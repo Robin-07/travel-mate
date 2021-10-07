@@ -79,6 +79,10 @@ body{
     z-index:999;
 }
 
+.material-icons{
+    font-size: 1em !important;
+}
+
 .fav-icon{
     position: absolute;
     right: 2%;

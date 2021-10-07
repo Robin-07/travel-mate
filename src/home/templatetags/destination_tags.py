@@ -11,9 +11,10 @@ def cheapest_deal(destination_id):
 
 @register.filter(is_safe=True)
 def is_in_wishlist(user_id, destination_id):
-    if Wish.objects.filter(user=user_id,destination=destination_id).exists():
-        return mark_safe('<div class="fas fa-star fav-icon"></div>')
-    return mark_safe('<div class="far fa-star fav-icon"></div>')
+    wish = Wish.objects.filter(user=user_id,destination=destination_id)
+    if wish.exists():
+        return mark_safe(f'<div class="material-icons fav-icon" onclick="toggleWish(event,{wish.first().id},0)">star_rate</div>')
+    return mark_safe(f'<div class="material-icons fav-icon" onclick="toggleWish(event,0,{destination_id})">star_border</div>')
 
 @register.filter
 def get_offer_images(offer_id):
