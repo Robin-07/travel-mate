@@ -1,4 +1,6 @@
 from django.db import models
+from authentication.models import User
+
 
 # Lists for Choices
 
@@ -36,7 +38,7 @@ class DestinationImage(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
-class Deal(models.Model):
+class Package(models.Model):
 
     destination = models.ForeignKey(to=Destination,on_delete=models.CASCADE)
     duration = models.IntegerField()
@@ -46,3 +48,14 @@ class Deal(models.Model):
         return f'{self.destination.name}/{self.duration}days'
 
 
+class Wish(models.Model):
+
+    user = models.ForeignKey(to=User,on_delete=models.CASCADE)
+    destination = models.ForeignKey(to=Destination,on_delete=models.CASCADE)
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'Wishes'
+
+    def __str__(self):
+        return f'{self.user.email} {self.destination.name}'

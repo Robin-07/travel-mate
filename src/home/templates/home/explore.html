@@ -3,14 +3,18 @@
 {% load destination_tags %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/explore-page.css' %}">
-    <script src="{% static 'js/bootstrap.js' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
     <title>TravelMate-Explore</title>
     <script>
         $(document).ready(function(){
             $('.nav-item').eq(2).css("opacity","1");
-            console.log({{destination.grouper.name}});
+            $('.fav-icon').click([event], function(){
+                console.log(event);
+                event.target.toggleClass("far");
+                event.target.toggleClass("fas");
+            });
         });
-    </script>
+   </script>
 {% endblock %}
 
 {% block auth %}
@@ -60,6 +64,7 @@
         <div id="{{destination.grouper.name}}" class="carousel slide" data-ride="carousel">
             <p>Starts @ {{ destination.grouper.id|cheapest_deal }}*</p>
             <button class="btn btn-primary">Explore</button>
+            {{ user.id|is_in_wishlist:destination.grouper.id }}
           <div class="carousel-inner" role="listbox">
               <ol class="carousel-indicators">
             <li data-target="#{{destination.grouper.name}}" data-slide-to="0" class="active"></li>

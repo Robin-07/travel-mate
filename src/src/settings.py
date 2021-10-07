@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    # Django REST framework
+    'rest_framework',
+
     # Authentication apps
     'authentication',
     'allauth',
