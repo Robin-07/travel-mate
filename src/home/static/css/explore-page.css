@@ -13,7 +13,7 @@ body{
 }
 
 .nav{
-    margin-top: 8%;
+    margin-top: 6%;
 }
 
 .nav-tabs{
@@ -36,27 +36,31 @@ body{
     outline: none;
 }
 
-.destination-container{
+.tab-content{
     margin-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.destinations-grid{
+    width:80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px 50px;
+}
+
+.destination-container{
     text-align: center;
     color: white;
     font: 600 3em "Poppins";
 }
 
-
-.carousel-container{
-    margin-top: 40px;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
-
 .carousel > p{
     position: absolute;
     left: 0;
-    margin-left: auto;
-    font: 500 0.8em 'Poppins';
-    background: darkred;
+    font: 500 0.6em 'Poppins';
+    background: #007bff;
     padding: 10px;
     border-radius: 12px 0 0 0;
     z-index: 999;
@@ -80,14 +84,18 @@ body{
     right: 2%;
     top: 2%;
     cursor: pointer;
-    color: #fcc200;
+    color: #ffdb58;
     z-index: 999;
 }
 
+.far{
+    font-weight: 10;
+}
+
 .carousel, .carousel-inner{
-    height: 500px;
+    height: 450px;
     border-radius: 15px;
-    width: 60vw;
+    width: 40vw;
 }
 
 .carousel-item > img{

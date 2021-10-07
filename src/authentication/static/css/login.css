@@ -21,6 +21,10 @@ body{
     transform: translateY(-8%);
 }
 
+.navbar{
+    opacity:1;
+}
+
 .container{
     position: absolute;
     left: 15%;
@@ -45,7 +49,7 @@ form{
 
 .sign-up-card{
     opacity: 0;
-    background-color: #000000;
+    background-color: #1a1110;
     color: #fff;
     width: 350px;
     padding: 30px 20px;

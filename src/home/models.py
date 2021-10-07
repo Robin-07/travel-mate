@@ -13,6 +13,9 @@ FAMOUS_FOR_CHOICES = [('Scenery','Scenery'),('Wildlife','Wildlife'),('Food','Foo
                       ('Night Life','Night Life'),('Monuments','Monuments')]
 
 
+
+# Models
+
 class Destination(models.Model):
 
     country = models.CharField(max_length=64)
@@ -59,3 +62,13 @@ class Wish(models.Model):
 
     def __str__(self):
         return f'{self.user.email} {self.destination.name}'
+
+
+class Offer(models.Model):
+
+    package = models.ForeignKey(to=Package,on_delete=models.CASCADE)
+    discount = models.IntegerField()
+    valid_until = models.DateTimeField()
+
+    def __str__(self):
+        return f'{self.package} ({self.discount}%Off)'
