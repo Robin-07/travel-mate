@@ -135,18 +135,7 @@ p a{
 	align-items: center;
 }
 
-img{
-	margin-top: 5px;
-	margin-right: auto;
-	cursor:pointer;
-}
-
-.google-icon{
-    width: 10%;
-    height: 40px;
-}
-
-.fb-icon{
-	width:20%;
-	height: 40px;
+.icons-container > img{
+    padding: 10px;
+    cursor: pointer;
 }

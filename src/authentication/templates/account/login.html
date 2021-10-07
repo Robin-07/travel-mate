@@ -1,5 +1,6 @@
 {% extends "account/BaseAuth.html" %}
 {% load static %}
+{% load socialaccount %}
     {% block head %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>TravelMate - Login</title>
@@ -26,11 +27,8 @@
                 {{ form.as_p }}
                 <button class="btn-login" type="submit">Log In</button>
                 <div class="icons-container">
-                    <div style="margin-right:auto; padding:20px">
-                        <p>or Login with..</p>
-                    </div>
-                    <img class="google-icon" src="{% static 'images/goog.png' %}" alt="Google">
-                    <img class="fb-icon" src="{% static 'images/fb.png' %}" alt="Facebook" >
+                    <img class="google-icon" src="https://img.icons8.com/color/48/000000/google-logo.png" onclick="location.href='{% provider_login_url 'google' %}'"/>
+                    <img class="fb-icon" src="https://img.icons8.com/color/48/000000/facebook-new.png"/>
                 </div>
             </div>
             <div class="sign-up-card">
