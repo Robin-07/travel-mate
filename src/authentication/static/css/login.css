@@ -34,12 +34,27 @@ body{
 }
 
 .welcome{
-    opacity: 0;
     font: 600 40px "Poppins";
     font-size: 40px !important;
     color: black;
     margin-top: 10vh;
     margin-right: auto;
+}
+
+.header{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.quote{
+    opacity: 0;
+    margin-top: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font:500 1.2em "Birthstone";
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -129,7 +144,7 @@ p a{
     font-size: 18px;
 }
 
-.icons-container,.header{
+.icons-container{
 	display:flex;
 	justify-content:center;
 	align-items: center;

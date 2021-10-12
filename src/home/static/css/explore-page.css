@@ -1,6 +1,20 @@
 body{
     overflow-x: hidden;
+    overflow-y: scroll;
     background-color: #121212;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
 }
 
 .navbar{
@@ -38,7 +52,6 @@ body{
 
 .tab-content{
     margin-top: 5%;
-    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -103,6 +116,123 @@ body{
 }
 
 .carousel-item > img{
-    height: 800px;
-    width: 100vw;
+    width: 100%;
+}
+
+.search-img{
+    margin-top: 2%;
+    width: 75vw;
+    height: 600px;
+    border-radius: 12px;
+}
+
+.wrap{
+  width: 50%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #fff;
+  border-right: none;
+  padding: 5px;
+  height: 60px;
+  border-radius: 30px 0 0 30px;
+  outline: none;
+  font-size: 1.8em;
+  color: #000;
+  padding-left: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.searchTerm:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton:focus{
+  outline: none;
+}
+
+.searchButton {
+  width: 80px;
+  height: 60px;
+  border: 1px solid #fff;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.searchButton:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.searchButton > i{
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+.filter-section{
+    transform: translateY(100px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.filter-container{
+    width: 20vw;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.filter-container:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.filter-container > p{
+    text-align: center;
+    color: #000;
+    font: 600 1.75em 'Oswald';
+}
+
+.filter-btns{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dropdown-menu:hover{
+    cursor: pointer;
+}
+
+.climate-option{
+    display: none;
+}
+
+.terrain-option{
+    display: none;
+}
+
+.famous-for-option{
+    display: none;
 }

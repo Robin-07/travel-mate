@@ -3,23 +3,24 @@
 {% load socialaccount %}
     {% block head %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <title>TravelMate - Login</title>
     <script>
         $(document).ready(function(){
-            setTimeout(function(){
-            $('.welcome').css("opacity","1");
-            setTimeout(function(){
-                $('.sign-up-card').css("opacity","1");
-            },300);
-            },300);
+            setTimeout(function(){$('.header').css("opacity","1")},400);
+            setTimeout(function(){$('.sign-up-card').css("opacity","1")},800);
+            setTimeout(function(){$('.quote').css("opacity","1")},1400);
         })
     </script>
     {% endblock %}
 
     {% block body %}
     <div class="container">
-        <div class="welcome align-self-start">
-            Welcome to TravelMate
+        <div class="welcome">
+            <div class="header">Welcome to TravelMate</div>
+            <div class="quote">"A journey of a thousand miles<br>begins with a single step"<div style="margin-left:auto;font-size:0.8em;">-Lao Tzu</div></div>
         </div>
         <form method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
