@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body{
     overflow-x: hidden;
     overflow-y: scroll;
@@ -109,7 +113,7 @@ body{
     font-weight: 10;
 }
 
-.carousel, .carousel-inner{
+.carousel, .carousel-inner, .destination-card > img{
     height: 450px;
     border-radius: 15px;
     width: 40vw;
@@ -121,15 +125,15 @@ body{
 
 .search-img{
     margin-top: 2%;
-    width: 75vw;
-    height: 600px;
-    border-radius: 12px;
+    width: 80vw;
+    height: 55vh;
+    border-radius: 10px;
 }
 
 .wrap{
   width: 50%;
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -165,6 +169,10 @@ body{
 
 .searchButton:focus{
   outline: none;
+}
+
+.searchButton:active{
+    transform: translateY(2px);
 }
 
 .searchButton {
@@ -221,6 +229,20 @@ body{
     justify-content: space-evenly;
 }
 
+.filters-search-btn{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.filters-search-btn:hover{
+    opacity: 0.75;
+}
+
+.filters-search-btn:active{
+    transform: translateY(2px);
+}
+
 .dropdown-menu:hover{
     cursor: pointer;
 }
@@ -235,4 +257,14 @@ body{
 
 .famous-for-option{
     display: none;
+}
+
+#search-results-container{
+    width: 80vw;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    display: none;
+    font: 600 3em 'Oswald';
+    color: white;
+    text-align: center;
 }

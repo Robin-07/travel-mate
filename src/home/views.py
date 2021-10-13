@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from .models import Destination, DestinationImage, Wish, Offer, CLIMATE_CHOICES, TERRAIN_CHOICES, FAMOUS_FOR_CHOICES
+from .models import Destination, DestinationImage, Package, Wish, Offer, CLIMATE_CHOICES, TERRAIN_CHOICES, FAMOUS_FOR_CHOICES
 from .helpers import get_profile_img_url
-from rest_framework import viewsets, permissions, views
+from rest_framework import viewsets, views, status
 from rest_framework.response import Response
 from .serializers import WishSerializer
+from django.db.models import Q
 
 
 def home(request):
@@ -36,9 +37,47 @@ class WishViewSet(viewsets.ModelViewSet):
 class DestinationNamesAPIView(views.APIView):
 
      authentication_classes = ()
-     permission_classes = ()
 
-     def get(self, request, format=None):
+     def get(self, request):
 
           names = [destination.name for destination in Destination.objects.all()]
-          return Response(names)
+          return Response(data = names, status=status.HTTP_200_OK)
+
+
+class DestinationsByNameAPIView(views.APIView):
+
+     authentication_classes = ()
+
+     def get(self, request, name):
+
+          destination = Destination.objects.filter(name=name).first()
+          if not destination:
+               return Response(data={"error":"No Results Found"},status=status.HTTP_404_NOT_FOUND)
+          destination_images = DestinationImage.objects.filter(destination=destination)
+          image_url = ""
+          for image in destination_images:
+               if image.is_primary:
+                    image_url = image.image_url
+          cheapest_deal = Package.objects.filter(destination=destination.id).order_by('price').values('price').first()['price']
+          return Response(data=[{"name":destination.name,"image_url":image_url,"cheapest_deal":cheapest_deal}],status=status.HTTP_200_OK)
+
+
+class DestinationsByFilterAPIView(views.APIView):
+
+     authentication_classes = ()
+
+     def get(self, request, filter):
+
+          destinations = Destination.objects.filter(Q(famous_for=filter) | Q(climate_type=filter) | Q(terrain_type=filter))
+          if not destinations:
+               return Response(data={"error": "No Results Found"}, status=status.HTTP_404_NOT_FOUND)
+          resp = []
+          for destination in destinations:
+               destination_images = DestinationImage.objects.filter(destination=destination)
+               image_url = ""
+               for image in destination_images:
+                    if image.is_primary:
+                         image_url = image.image_url
+               cheapest_deal = Package.objects.filter(destination=destination.id).order_by('price').values('price').first()['price']
+               resp.append({"name":destination.name,"image_url":image_url,"cheapest_deal":cheapest_deal})
+          return Response(data = resp, status = status.HTTP_200_OK)

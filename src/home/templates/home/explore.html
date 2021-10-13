@@ -9,7 +9,37 @@
     <script>
         $(document).ready(function(){
             $('.nav-item').eq(2).css("opacity","1");
+            $('.searchButton').click(function(){
+                const name = $('.searchTerm').val();
+                axios.get(location.origin + `/destinations/names/${name}`)
+                .then(response => {
+                    showSearchResults(response.data);
+                })
+                .catch(error => console.log(error.response.data));
+            });
+            $('.filters-search-btn').click(function(){
+                const filter = $('#filter-menu-2').html();
+                axios.get(location.origin + `/destinations/filters/${filter}`)
+                .then(response => {
+                    showSearchResults(response.data);
+                })
+                .catch(error => console.log(error.response.data));
+            });
         });
+        const showSearchResults = (data) => {
+            $("#search-results-grid").empty();
+            for(const destination of data){
+                const html = `<div class="destination-container">
+                    <p>${destination.name}</p>
+                    <div class="destination-card">
+                        <img src="${destination.image_url}"/>
+                    </div>
+                </div>`;
+                $("#search-results-grid").append(html);
+                $("#search-results-container").css("display","block");
+                setTimeout(function(){$("#search-results-container")[0].scrollIntoView()},600);
+            }
+        }
         const toggleWish = (event,wish_id,destination_id) => {
             event.target.classList.toggle('far');
             event.target.classList.toggle('fas');
@@ -31,7 +61,6 @@
         });
         });
         const showFilterOptions = (e,optionType) => {
-            console.log(e.target.innerHTML);
             $('#filter-menu-2').prop("disabled",false);
             $('#filter-menu-1').text(e.target.innerHTML);
             $('#filter-menu-2').text("Option");
@@ -134,13 +163,13 @@
     <div class="wrap">
        <div class="search">
           <input type="text" class="searchTerm basicAutoComplete" placeholder="Where to ?">
-          <button type="submit" class="searchButton" >
+          <button type="submit" class="searchButton">
             <i class="fa fa-search"></i>
          </button>
        </div>
      <div class="filter-section">
          <div class="filter-container">
-         <p>FILTERS</p>
+         <p>Search By Filters</p>
              <hr/>
          <div class="filter-btns">
              <div class="btn-group">
@@ -169,10 +198,15 @@
                 {% endfor %}
             </div>
              </div>
+             <div>
+                 <img class="filters-search-btn" src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"/>
+             </div>
          </div>
      </div>
      </div>
     </div>
+      <div id="search-results-container">Search Results</div>
+      <div id="search-results-grid" class="destinations-grid"></div>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <div class="destinations-grid">
