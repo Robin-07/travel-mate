@@ -60,6 +60,13 @@ body{
     justify-content: center;
 }
 
+.recommendations-header{
+    margin-bottom: 5%;
+    font: 600 2em "Poppins";
+    text-align: center;
+    color: #fff;
+}
+
 .destinations-grid{
     width:80%;
     display: grid;
@@ -117,6 +124,7 @@ body{
     height: 450px;
     border-radius: 15px;
     width: 40vw;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .carousel-item > img{

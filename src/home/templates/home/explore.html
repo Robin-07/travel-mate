@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static 'css/explore-page.css' %}">
     <script src="{% static 'js/bootstrap.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>TravelMate-Explore</title>
+    <title>TravelMate - Explore</title>
     <script>
         $(document).ready(function(){
             $('.nav-item').eq(2).css("opacity","1");
@@ -23,7 +23,7 @@
                 .then(response => {
                     showSearchResults(response.data);
                 })
-                .catch(error => console.log(error.response.data));
+                .catch(error => console.log(error.response));
             });
         });
         const showSearchResults = (data) => {
@@ -82,7 +82,7 @@
     <img class="profile-img" src="{{ profile_img_url }}" />
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Edit Profile</a>
+    <a class="dropdown-item" href="/profile">Edit Profile</a>
     <a class="dropdown-item" href="/auth/logout">Logout</a>
   </div>
 </div>
@@ -113,6 +113,8 @@
 
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+      {% if user.is_authenticated %}
+      <div class="recommendations-header">Browse from a curated list of Recommended destinations,<br/>handpicked for you.</div>
       <div class="destinations-grid">
       {% for destination in destination_list %}
     <div class="destination-container">
@@ -157,6 +159,9 @@
     </div>
     {% endfor %}
       </div>
+      {% else %}
+      <div class="recommendations-header">Please login to start seeing Recommendations</div>
+      {% endif %}
   </div>
   <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <img class="search-img" src="{% static 'images/search-bg.jpg' %}"/>
