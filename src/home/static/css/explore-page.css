@@ -132,9 +132,9 @@ body{
 }
 
 .search-img{
-    margin-top: 2%;
-    width: 80vw;
-    height: 55vh;
+    height: 60vh;
+    width: 70vw;
+    object-fit: cover;
     border-radius: 10px;
 }
 

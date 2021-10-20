@@ -82,7 +82,7 @@
     <img class="profile-img" src="{{ profile_img_url }}" />
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="/profile">Edit Profile</a>
+    <a class="dropdown-item" href="/profile">Settings</a>
     <a class="dropdown-item" href="/auth/logout">Logout</a>
   </div>
 </div>
@@ -164,7 +164,7 @@
       {% endif %}
   </div>
   <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <img class="search-img" src="{% static 'images/search-bg.jpg' %}"/>
+    <img class="search-img" src="{% static 'images/search-bg.svg' %}"/>
     <div class="wrap">
        <div class="search">
           <input type="text" class="searchTerm basicAutoComplete" placeholder="Where to ?">

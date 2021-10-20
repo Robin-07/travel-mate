@@ -11,6 +11,9 @@ from authentication.models import User, UserProfile
 
 def Index(request):
 
+     if request.user.is_authenticated:
+          return Explore(request)
+
      context = get_profile_img_url(request.user)
 
      return render(request, 'home/home-page.html', context=context)
