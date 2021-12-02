@@ -231,19 +231,52 @@
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
+  overflow-x: hidden;
 }
 .sidebar.open ~ .home-section{
   left: 250px;
   width: calc(100% - 250px);
 }
-.home-section .text{
-  display: inline-block;
-  color: #11101d;
-  font-size: 35px;
-  font-weight: 600;
-  margin: 18px;
-  margin-left: 40%;
+
+.img-cntnr{
+
+    display: flex;
+    justify-content: center;
 }
+
+.home-section img{
+    height: 450px;
+    width: 100%;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.content-container{
+    display:flex;
+    justify-content: center;
+}
+
+.main-content{
+    margin-top: 10vh;
+    height: 80vh;
+    width: 80vw;
+    text-align: left;
+    font-size: 1.25em;
+}
+
+.main-content .header{
+    font-weight: 600;
+    margin-bottom: 40px;
+    font-size: 1.5em;
+}
+
+.main-content li{
+    margin-bottom: 20px;
+}
+
+.main-content li i{
+    font-weight: bold;
+}
+
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;
