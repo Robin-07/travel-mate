@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
+    # For UML
+    'django_extensions',
+
     'home',
 ]
 
@@ -173,3 +176,11 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# For UML
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
