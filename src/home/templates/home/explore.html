@@ -122,7 +122,7 @@
         <div class="carousel-container">
         <div id="{{destination.grouper.name}}" class="carousel slide" data-ride="carousel">
             <p>Starts @ {{ destination.grouper.id|cheapest_deal }}*</p>
-            <button class="btn btn-primary">Explore</button>
+            <button class="btn btn-primary" onclick="location.href='/travel/{{ destination.grouper.name }}'">Explore</button>
             {% if user.is_authenticated %}
             {{ user.id|is_in_wishlist:destination.grouper.id }}
             {% endif %}
@@ -222,7 +222,7 @@
         <div class="carousel-container">
         <div id="offer-{{offer.id}}" class="carousel slide" data-ride="carousel">
             <p style="background-color:darkred">Flat {{ offer.discount }}% OFF</p>
-            <button class="btn btn-primary">Explore</button>
+            <button class="btn btn-primary" onclick="location.href='/travel/{{ offer.package.destination.name }}'">Explore</button>
             {{ user.id|is_in_wishlist:offer.package.destination.id }}
           <div class="carousel-inner" role="listbox">
               <ol class="carousel-indicators">
