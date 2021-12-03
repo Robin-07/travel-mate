@@ -53,7 +53,8 @@
       </div>
       <div class="content-container">
           <div class="main-content">
-              <div class="header">Get to know more about {{ name }} with these fun facts !</div>
+              <div class="general-info">
+              <div class="header">Some fun facts about {{ name }} !</div>
               <ul>
                   <li>As of 2021, the population of {{ name }} is <i>{{ population }}</i></li>
                   <li>The Capital of {{ name }} is <i>{{ capital }}</i></li>
@@ -69,6 +70,17 @@
                   </li>
                   <li>A Person from {{ name }} is referred to as <i>{{ demonym }}</i></li>
               </ul>
+              </div>
+              <p></p>
+              <div class="weather-info">
+                  <div class="header">Current weather</div>
+                  <ul>
+                      <li>Current weather can be described as <i>{{ weather_description }}</i></li>
+                      <li>Temperature is <i>{{ temperature }} &#176; C</i></li>
+                      <li>Pressure is <i>{{ pressure }} hPa</i></li>
+                      <li>Humidity is <i>{{ humidity }} %</i></li>
+                  </ul>
+              </div>
           </div>
       </div>
 

@@ -186,3 +186,5 @@ GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
 }
+
+WEATHER_API_KEY = '34e7a14701764a869cade6fd15515c50'
