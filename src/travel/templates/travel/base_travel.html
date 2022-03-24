@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> TravelMate | {{ name }} </title>
+    <link rel="stylesheet" href="{% static 'css/base_travel.css' %}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+        <div class="logo_name">TravelMate</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">COVID Analytics</span>
+       </a>
+       <span class="tooltip">COVID Analytics</span>
+     </li>
+        <li>
+       <a href="#">
+         <i class='bx bxs-offer' style="font-size:24px;"></i>
+         <span class="links_name">Offers</span>
+       </a>
+       <span class="tooltip">Offers</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bxs-plane-take-off' style="font-size:24px;"></i>
+         <span class="links_name">Booking</span>
+       </a>
+       <span class="tooltip">Booking</span>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+      <div class="img-cntnr">
+      <img src="{{ cover_img.image_url }}">
+      </div>
+      <div class="content-container">
+          <div class="main-content">
+              <div class="general-info">
+              <div class="header">Some fun facts about {{ name }} !</div>
+              <ul>
+                  <li>As of 2021, the population of {{ name }} is <i>{{ population }}</i></li>
+                  <li>The Capital of {{ name }} is <i>{{ capital }}</i></li>
+                  <li>
+                      {% if currencies|length == 1 %}The Currency used throughout the country is
+                      {% else %}
+                      The Currencies used throughout the country are
+                      {% endif %}
+                      <i>{% for currency in currencies %}
+                          {{currency.name}} ({{currency.symbol}})
+                          {% endfor %}
+                      </i>
+                  </li>
+                  <li>A Person from {{ name }} is referred to as <i>{{ demonym }}</i></li>
+              </ul>
+              </div>
+              <p></p>
+              <div class="weather-info">
+                  <div class="header">Current weather</div>
+                  <ul>
+                      <li>Current weather can be described as <i>{{ weather_description }}</i></li>
+                      <li>Temperature is <i>{{ temperature }} &#176; C</i></li>
+                      <li>Pressure is <i>{{ pressure }} hPa</i></li>
+                      <li>Humidity is <i>{{ humidity }} %</i></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+  </section>
+  <script src="{% static 'js/base_travel.js' %}"></script>
+
+</body>
+</html>

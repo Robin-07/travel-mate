@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'home',
+    'travel',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
@@ -86,7 +87,8 @@ ROOT_URLCONF = 'src.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'authentication', 'templates'),os.path.join(BASE_DIR, 'home', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'authentication', 'templates'),os.path.join(BASE_DIR, 'home', 'templates'),
+                 os.path.join(BASE_DIR, 'travel', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -184,3 +186,5 @@ GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
 }
+
+WEATHER_API_KEY = '34e7a14701764a869cade6fd15515c50'
