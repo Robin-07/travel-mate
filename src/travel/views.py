@@ -1,7 +1,11 @@
+import requests
+import stripe
+
 from django.shortcuts import render
+from django.http import Http404
 from restcountries import RestCountryApiV2 as rapi
-from home.models import DestinationImage, Destination
-import requests, json
+
+from home.models import DestinationImage, Destination, Package
 from django.conf import settings as dj_settings
 
 # Create your views here.
@@ -33,3 +37,19 @@ def travel(request, country_name):
                "humidity": humidity,
                "weather_description": weather_description}
     return render(request,'travel/base_travel.html',context=context)
+
+def booking(request, package_id):
+    try:
+        package = Package.objects.get(id=package_id)
+        stripe.api_key = dj_settings.STRIPE_API_KEY
+        intent = stripe.PaymentIntent.create(
+            amount=package.price,
+            currency='inr',
+            payment_method_types=['card'],
+        )
+        context = {
+            "client_secret": intent.client_secret
+        }
+        return render(request, 'travel/booking.html', context=context)
+    except Package.DoesNotExist:
+        return Http404("Package Does not exist")
