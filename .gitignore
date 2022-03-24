@@ -116,3 +116,6 @@ output/
 
 media/
 out.txt
+
+# xml files
+*.xml
