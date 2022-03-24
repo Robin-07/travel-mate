@@ -8,7 +8,6 @@ from django.conf import settings as dj_settings
 
 
 def travel(request, country_name):
-
     destination = Destination.objects.filter(name=country_name).first()
     image = DestinationImage.objects.filter(destination=destination,is_primary=True).first()
     country  = rapi.get_countries_by_name(f'{country_name}')[0]
