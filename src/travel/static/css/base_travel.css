@@ -6,6 +6,33 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+
+.checkout-msg {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: 999;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 20px;
+    color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.success-msg {
+    background-color: rgb(102, 187, 106);
+}
+
+.fail-msg {
+    background-color: rgb(244, 67, 54);
+}
+
+.checkout-msg:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 .sidebar{
   position: fixed;
   left: 0;

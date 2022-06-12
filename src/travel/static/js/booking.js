@@ -6,7 +6,7 @@ const items = [{ id: "xl-tshirt" }];
 
 let elements;
 
-initialize();
+//initialize();
 checkStatus();
 
 document
@@ -14,22 +14,22 @@ document
   .addEventListener("submit", handleSubmit);
 
 // Fetches a payment intent and captures the client secret
-async function initialize() {
-  const response = await fetch("/create-payment-intent", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
-  });
-  const { clientSecret } = await response.json();
-
-  const appearance = {
-    theme: 'stripe',
-  };
-  elements = stripe.elements({ appearance, clientSecret });
-
-  const paymentElement = elements.create("payment");
-  paymentElement.mount("#payment-element");
-}
+//async function initialize() {
+//  const response = await fetch("1", {
+//    method: "POST",
+//    headers: { "Content-Type": "application/json" },
+//    body: JSON.stringify({ items }),
+//  });
+//  const { clientSecret } = await response.json();
+//
+//  const appearance = {
+//    theme: 'stripe',
+//  };
+//  elements = stripe.elements({ appearance, clientSecret });
+//
+//  const paymentElement = elements.create("payment");
+//  paymentElement.mount("#payment-element");
+//}
 
 async function handleSubmit(e) {
   e.preventDefault();

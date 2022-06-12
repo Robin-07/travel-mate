@@ -4,34 +4,35 @@ from authentication.models import User
 
 # Lists for Choices
 
-TERRAIN_CHOICES = [('Plain','Plain'),('Mountain','Mountain'),('Desert','Desert'),('Forest','Forest'),
-                   ('Glacier','Glacier'),('Valley','Valley'),('Ocean','Ocean')]
+TERRAIN_CHOICES = [('Plain', 'Plain'), ('Mountain', 'Mountain'), ('Desert', 'Desert'), ('Forest', 'Forest'),
+                   ('Glacier', 'Glacier'), ('Valley', 'Valley'),('Ocean', 'Ocean')]
 
-CLIMATE_CHOICES = [('Hot','Hot'),('Cold','Cold'),('Moderate','Moderate'),('Rainy','Rainy')]
+CLIMATE_CHOICES = [('Hot', 'Hot'), ('Cold', 'Cold'), ('Moderate', 'Moderate'), ('Rainy', 'Rainy')]
 
-FAMOUS_FOR_CHOICES = [('Scenery','Scenery'),('Wildlife','Wildlife'),('Food','Food'),('Weather','Weather'),
-                      ('Night Life','Night Life'),('Monuments','Monuments')]
-
+FAMOUS_FOR_CHOICES = [('Scenery', 'Scenery'), ('Wildlife', 'Wildlife'), ('Food', 'Food'), ('Weather', 'Weather'),
+                      ('Night Life', 'Night Life'), ('Monuments', 'Monuments')]
 
 
 # Models
 
+
 class Destination(models.Model):
 
     country = models.CharField(max_length=64)
-    name = models.CharField(unique=True,max_length=64)
-    terrain_type = models.CharField(max_length=32,choices=TERRAIN_CHOICES,null=True,blank=True)
-    climate_type = models.CharField(max_length=32,choices=CLIMATE_CHOICES,null=True,blank=True)
-    famous_for = models.CharField(max_length=64,choices=FAMOUS_FOR_CHOICES,null=True,blank=True)
+    name = models.CharField(unique=True, max_length=64)
+    terrain_type = models.CharField(max_length=32, choices=TERRAIN_CHOICES, null=True, blank=True)
+    climate_type = models.CharField(max_length=32, choices=CLIMATE_CHOICES, null=True, blank=True)
+    famous_for = models.CharField(max_length=64, choices=FAMOUS_FOR_CHOICES, null=True, blank=True)
 
     def __str__(self):
         return f'{self.name}, {self.country}'
+
 
 class DestinationImage(models.Model):
 
     image = models.ImageField(upload_to='destination-images')
     is_primary = models.BooleanField(default=False)
-    destination = models.ForeignKey(to=Destination,on_delete=models.CASCADE)
+    destination = models.ForeignKey(to=Destination, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.destination.name} image'
@@ -41,9 +42,10 @@ class DestinationImage(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
+
 class Package(models.Model):
 
-    destination = models.ForeignKey(to=Destination,on_delete=models.CASCADE)
+    destination = models.ForeignKey(to=Destination, on_delete=models.CASCADE)
     duration = models.IntegerField()
     price = models.IntegerField()
 
@@ -53,20 +55,20 @@ class Package(models.Model):
 
 class Wish(models.Model):
 
-    user = models.ForeignKey(to=User,on_delete=models.CASCADE)
-    destination = models.ForeignKey(to=Destination,on_delete=models.CASCADE)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    destination = models.ForeignKey(to=Destination, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural = 'Wishes'
 
     def __str__(self):
-        return f'{self.user.email} {self.destination.name}'
+        return f'{self.user} {self.destination.name}'
 
 
 class Offer(models.Model):
 
-    package = models.ForeignKey(to=Package,on_delete=models.CASCADE)
+    package = models.ForeignKey(to=Package, on_delete=models.CASCADE)
     discount = models.IntegerField()
     valid_until = models.DateTimeField()
 

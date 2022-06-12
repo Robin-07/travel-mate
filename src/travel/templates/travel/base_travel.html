@@ -11,6 +11,11 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+  {% if success_msg %}
+  <div class="checkout-msg success-msg">{{ checkout_msg }}</div>
+  {% else %}
+  <div class="checkout-msg fail-msg">{{ checkout_msg }}</div>
+  {% endif %}
   <div class="sidebar">
     <div class="logo-details">
         <div class="logo_name">TravelMate</div>
@@ -39,7 +44,7 @@
        <span class="tooltip">Offers</span>
      </li>
      <li>
-       <a href="{% url 'booking' package_id=1 %}">
+       <a href="{% url 'create-checkout-session' package_id=1 %}">
          <i class='bx bxs-plane-take-off' style="font-size:24px;"></i>
          <span class="links_name">Booking</span>
        </a>
@@ -85,6 +90,14 @@
       </div>
 
   </section>
+  <script>
+  window.addEventListener('DOMContentLoaded',() => {
+      setTimeout(() => {
+        const element = document.querySelector('.checkout-msg');
+        element.style.display = "none";
+      },5000);
+  });
+  </script>
   <script src="{% static 'js/base_travel.js' %}"></script>
 
 </body>
