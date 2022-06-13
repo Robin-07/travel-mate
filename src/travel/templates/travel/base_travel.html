@@ -11,14 +11,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-  {% if success_msg %}
+  {% if success_msg and checkout_msg|length > 0 %}
   <div class="checkout-msg success-msg">{{ checkout_msg }}</div>
-  {% else %}
+  {% elif checkout_msg|length > 0 %}
   <div class="checkout-msg fail-msg">{{ checkout_msg }}</div>
   {% endif %}
   <div class="sidebar">
     <div class="logo-details">
-        <div class="logo_name">TravelMate</div>
+        <div class="logo_name" onClick="backToHome()" style="cursor:pointer">TravelMate</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
@@ -44,10 +44,10 @@
        <span class="tooltip">Offers</span>
      </li>
      <li>
-       <a href="{% url 'create-checkout-session' package_id=1 %}">
-         <i class='bx bxs-plane-take-off' style="font-size:24px;"></i>
-         <span class="links_name">Booking</span>
-       </a>
+         <a href="{{ booking_url }}">
+           <i class='bx bxs-plane-take-off' style="font-size:24px;"></i>
+           <span class="links_name">Booking</span>
+         </a>
        <span class="tooltip">Booking</span>
      </li>
     </ul>
@@ -97,6 +97,9 @@
         element.style.display = "none";
       },5000);
   });
+  const backToHome = () => {
+    window.location.href = 'http://127.0.0.1:8000';
+  }
   </script>
   <script src="{% static 'js/base_travel.js' %}"></script>
 

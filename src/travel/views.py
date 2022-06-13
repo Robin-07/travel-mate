@@ -17,6 +17,7 @@ def travel(request, country_name):
     if request.method == "GET":
         destination = Destination.objects.get(name=country_name)
         image = DestinationImage.objects.get(destination=destination,is_primary=True)
+        package_id = Package.objects.filter(destination=destination).order_by('price').first().id
         country = rapi.get_countries_by_name(f'{country_name}')[0]
         population = f'{country.population:,}'
 
@@ -49,7 +50,8 @@ def travel(request, country_name):
             "humidity": response["humidity"],
             "weather_description": weather_description,
             "checkout_msg": checkout_msg,
-            "success_msg": success_msg
+            "success_msg": success_msg,
+            "booking_url": BASE_TRAVEL_URL + f'create-checkout-session/{package_id}'
         }
 
         return render(request, 'travel/base_travel.html', context=context)
